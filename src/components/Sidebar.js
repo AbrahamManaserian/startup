@@ -39,7 +39,7 @@ import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const CostumeBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
+  // display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   position: 'fixed',
@@ -47,7 +47,7 @@ const CostumeBox = styled(Box)(({ theme }) => ({
   width: '24px',
   height: '24px',
   borderRadius: '50%',
-  bgcolor: 'white',
+  backgroundColor: 'white',
   border: 1,
   borderStyle: 'dashed',
   borderColor: '#eeeeee',
@@ -62,7 +62,7 @@ const socialObject = {
   viber: <ViberIcon />,
 };
 
-export default function SideBar() {
+export default function SideBar(props) {
   const [open, setOpen] = useState(false);
   const [openSlippers, setOpenSlippers] = useState(false);
   const [openSocial, setOpenSocial] = useState(false);
@@ -89,17 +89,22 @@ export default function SideBar() {
       height="100vh"
       width={sideBarSize ? '280px' : '90px'}
       sx={{
-        // display: 'flex',
+        transition: 'all 0.1s ease-out',
+        display: {
+          xs: props.hide ? 'none' : 'grid',
+          lg: 'grid',
+        },
         // flexDirection: 'column',
         // height: '100vh',
         flexWrap: 'nowrap',
         overflow: 'scroll',
-        borderRightStyle: 'dashed',
+        borderRightStyle: props.hide ? 'dashed' : 'none',
         p: sideBarSize ? '30px 10px 50px 15px' : '20px 5px 50px 5px',
       }}
     >
       <CostumeBox
         sx={{
+          display: !props.hide ? 'none' : 'flex',
           left: sideBarSize ? '267px' : '77px',
         }}
         onClick={() => setSideBarSize(!sideBarSize)}
@@ -274,7 +279,7 @@ export default function SideBar() {
       </Box>
 
       <div>
-        <Collapse in={open} timeout={700} unmountOnExit>
+        <Collapse in={open} timeout={600} unmountOnExit>
           {['summer', 'winter', 'spring', 'autumn', 'all'].map((item, index) => {
             return (
               <Link
@@ -354,7 +359,7 @@ export default function SideBar() {
       </Box>
 
       <div>
-        <Collapse in={openSlippers} timeout={350} unmountOnExit>
+        <Collapse in={openSlippers} timeout={500} unmountOnExit>
           {['women', 'men', 'all'].map((item, index) => {
             return (
               <Link
@@ -488,7 +493,7 @@ export default function SideBar() {
       </Box>
 
       <div>
-        <Collapse in={openSocial} timeout={350} unmountOnExit>
+        <Collapse in={openSocial} timeout={500} unmountOnExit>
           <Link
             target="_blank"
             style={{

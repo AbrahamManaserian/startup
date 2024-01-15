@@ -1,4 +1,4 @@
-import { Badge, Box, Grid, Menu, MenuItem } from '@mui/material';
+import { Badge, Box, Grid, Menu, MenuItem, Typography } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import FlagMenu from './FlagMenu';
 import { BasketIcon } from './SVGIcons';
@@ -8,6 +8,7 @@ import { AppContext } from './Root';
 import { useContext, useState } from 'react';
 import { barText, getText } from '../texts';
 import { getAuth, signOut } from 'firebase/auth';
+import DrawerSideBar from './DrawerSideBar';
 
 export function UserMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -76,7 +77,7 @@ export default function TopBar() {
   const location = useLocation();
   return (
     <Grid
-      justifyContent="flex-end"
+      justifyContent="space-between"
       sx={{
         position: 'sticky',
         top: 0,
@@ -90,12 +91,13 @@ export default function TopBar() {
       alignItems="center"
       xs={12}
     >
-      <FlagMenu />
-      <Link to="/preferred">
+      <DrawerSideBar />
+      <Grid alignItems="center" alignContent="center" item xs container justifyContent="flex-end">
+        <FlagMenu />
         <Box
           sx={{
-            p: '5px',
-            m: '5px',
+            px: '3px',
+            m: '10px',
             display: 'flex',
             justifyContent: 'center',
             cursor: 'pointer',
@@ -107,55 +109,56 @@ export default function TopBar() {
             },
           }}
         >
-          <FavoriteTwoToneIcon color="error" sx={{ fontSize: '28px' }} />
+          <Badge
+            showZero
+            sx={{
+              '& .MuiBadge-badge': {
+                right: 3,
+                top: 9,
+                // border: `2px solid ${theme.palette.background.paper}`,
+                padding: '0 4px',
+              },
+            }}
+            badgeContent={context.basket}
+            color="secondary"
+          >
+            <Link to="/basket">
+              <BasketIcon />
+            </Link>
+          </Badge>
         </Box>
-      </Link>
-      <Box
-        sx={{
-          px: '3px',
-          m: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          borderRadius: '50%',
-          transition: 'all 0.2s ease-out',
-          '&:hover': {
-            bgcolor: '#e0e0e0',
-            transform: 'scale(1.02,1.02)',
-          },
-        }}
-      >
-        <Badge
-          showZero
-          sx={{
-            '& .MuiBadge-badge': {
-              right: 3,
-              top: 9,
-              // border: `2px solid ${theme.palette.background.paper}`,
-              padding: '0 4px',
-            },
-          }}
-          badgeContent={context.basket}
-          color="secondary"
-        >
-          <Link to="/basket">
-            <BasketIcon />
-          </Link>
-        </Badge>
-      </Box>
-
-      {context.user ? (
-        <UserMenu />
-      ) : (
-        <Link
-          className="linkRouter"
-          to={
-            url.pathname.includes('signin') ? url.search : `/signin/?${location.pathname + location.search}`
-          }
-        >
-          {getText('signIn', context.language, barText)}
+        <Link to="/preferred">
+          <Box
+            sx={{
+              p: '5px',
+              m: '5px',
+              display: 'flex',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              borderRadius: '50%',
+              transition: 'all 0.2s ease-out',
+              '&:hover': {
+                bgcolor: '#e0e0e0',
+                transform: 'scale(1.02,1.02)',
+              },
+            }}
+          >
+            <FavoriteTwoToneIcon color="error" sx={{ fontSize: '28px' }} />
+          </Box>
         </Link>
-      )}
+        {context.user ? (
+          <UserMenu />
+        ) : (
+          <Link
+            className="linkRouter"
+            to={
+              url.pathname.includes('signin') ? url.search : `/signin/?${location.pathname + location.search}`
+            }
+          >
+            {getText('signIn', context.language, barText)}
+          </Link>
+        )}
+      </Grid>
     </Grid>
   );
 }

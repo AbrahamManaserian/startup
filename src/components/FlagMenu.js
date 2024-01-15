@@ -38,7 +38,7 @@ export default function FlagMenu() {
   };
   //   console.log(flag);
   return (
-    <div style={{ paddingRight: '10px' }}>
+    <div style={{ paddingRight: '1px' }}>
       {[<ArmFlag height="28" width="28" />, <GBFlag />, <RussianFlag />].map((item, index) => {
         if (flag === index + 1)
           return (

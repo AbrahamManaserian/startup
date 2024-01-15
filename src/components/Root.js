@@ -25,7 +25,7 @@ export default function Root() {
       }}
     >
       <Grid item xs container>
-        <SideBar />
+        <SideBar hide={true} />
         <Grid item xs height="100vh" sx={{ overflow: 'scroll' }}>
           <TopBar />
           <Outlet />
