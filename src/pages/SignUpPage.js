@@ -13,7 +13,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithPopup,
+  updateProfile,
+} from 'firebase/auth';
 import {
   Backdrop,
   CircularProgress,
@@ -83,6 +89,37 @@ export default function SignUpPage() {
         // ..
       });
   };
+
+  const signInWithGoogle = () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    setLoading(true);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        navigate(`/${location.search.slice(2)}`);
+        setLoading(false);
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // console.log('asd');
+        // navigate(`/${location.search.slice(2)}`);
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  };
+
   const getText = (text) => {
     if (context.language === '1') {
       return textSignInUp[text].am;
@@ -219,7 +256,12 @@ export default function SignUpPage() {
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               {getText('signUp')}
             </Button>
-            <Button type="submit" fullWidth variant="outlined" sx={{ mb: 2, textTransform: 'none' }}>
+            <Button
+              onClick={() => signInWithGoogle()}
+              fullWidth
+              variant="outlined"
+              sx={{ mb: 2, textTransform: 'none' }}
+            >
               <Box sx={{ display: 'flex', paddingRight: '25px' }}>
                 <GoogleIcon />
               </Box>

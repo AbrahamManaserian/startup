@@ -94,9 +94,11 @@ export default function SignInPage() {
   const signInWithGoogle = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
-    navigate(`/${location.search.slice(2)}`);
-    signInWithRedirect(auth, provider)
+    setLoading(true);
+    signInWithPopup(auth, provider)
       .then((result) => {
+        navigate(`/${location.search.slice(2)}`);
+        setLoading(false);
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;

@@ -37,90 +37,130 @@ export const barText = {
 };
 
 export const textSideBar = {
-  home: {
-    am: 'Գլխավոր',
-    en: 'Home',
-    ru: 'Главная',
+  brands: {
+    en: 'Brands',
+    ru: 'Бренды',
+    am: 'Բրենդներ',
   },
-  onRoad: {
-    am: 'Ճանապարհին',
-    en: 'On the raod',
-    ru: 'На дороге',
+  password: {
+    en: 'Password',
+    ru: 'Пароль',
+    am: 'Գաղտնաբառ',
   },
-  general: {
+  overview: {
+    en: 'Overview',
+    ru: 'Обзор',
     am: 'Ընդհանուր',
-    en: 'General',
-    ru: 'Общее',
   },
-  inGeorgia: {
-    am: 'Վրաստանում',
-    en: 'In Georgia',
-    ru: 'В Грузии',
+  shops: {
+    en: 'Shops',
+    ru: 'Магазины',
+    am: 'Խանութներ',
   },
-  inArmenia: {
-    am: 'Հայաստանում',
-    en: 'In Armenia',
-    ru: 'В Армении',
+  sales: {
+    en: 'Sales',
+    ru: 'Скидки',
+    am: 'Զեղչեր',
   },
-  cars: {
-    am: 'Մեքենաներ',
-    en: 'Autos',
-    ru: 'Автомобили',
+  local: {
+    en: 'Local',
+    ru: 'Местный',
+    am: 'Տեղական',
   },
-  tyres: {
-    en: 'Tyres',
-    ru: 'Шины',
-    am: 'Անվադողեր',
+  products: {
+    en: 'Products',
+    ru: 'Продукты',
+    am: 'Ապրանքներ',
   },
-  choose: {
-    en: 'Choose',
-    ru: 'Выбирать',
-    am: 'Ընտրեք',
+  shoes: {
+    en: 'Shoes',
+    ru: 'Обувь',
+    am: 'Կոշիկներ',
   },
-  wheels: {
-    en: 'Wheels',
-    ru: 'Диски',
-    am: 'Անիվներ',
+  summer: {
+    en: 'Summer',
+    ru: 'Лето',
+    am: 'Ամառ',
   },
-  discount: {
-    en: 'Discount',
-    ru: 'Скидка',
-    am: 'Զեղչ',
+  winter: {
+    en: 'Winter',
+    ru: 'Зимняя',
+    am: 'Ձմեռ',
   },
-  partners: {
-    en: 'Partners',
-    ru: 'Партнерам',
-    am: 'Գործընկերներ   ',
+  spring: {
+    en: 'Spring',
+    ru: 'Весна',
+    am: 'Գարուն',
   },
-  news: {
-    en: 'News',
-    ru: 'Новости',
-    am: 'Նորություններ',
+  autumn: {
+    en: 'Autumn',
+    ru: 'Осень',
+    am: 'Աշուն',
   },
-  customers: {
-    en: 'Customers',
-    ru: 'Покупателям',
-    am: 'Գնորդներին',
+  all: {
+    en: 'All',
+    ru: 'Все',
+    am: 'Բոլորը',
+  },
+  slippers: {
+    en: 'Slippers',
+    ru: 'Тапочки',
+    am: 'Հողաթափ',
+  },
+  women: {
+    en: 'Women',
+    ru: 'Женская',
+    am: 'Կանացի',
+  },
+  men: {
+    en: 'Men',
+    ru: 'Мужская',
+    am: 'Տղամարդու',
+  },
+  inserts: {
+    en: 'Inserts',
+    ru: 'Вставки',
+    am: 'Ներդիրներ',
+  },
+  careItems: {
+    en: 'Care Items',
+    ru: 'Для ухода',
+    am: 'Կոշիկի խնամք',
+  },
+  details: {
+    en: 'Details',
+    ru: 'Подробно',
+    am: 'Մանրամասն',
+  },
+  social: {
+    en: 'Social',
+    ru: 'Соц-сети',
+    am: 'Սոց-ցանց',
   },
   about: {
     en: 'About',
     ru: 'О нас',
     am: 'Մեր մասին',
   },
-  balance: {
-    en: 'Tire fitting',
-    ru: 'Шиномонтаж',
-    am: 'Անվադողերի տեղադրում',
+  contacts: {
+    en: 'Contacts',
+    ru: 'Контакты',
+    am: 'Կոնտակտներ',
   },
-  news: {
-    en: 'News',
-    ru: 'Новости',
-    am: 'Նորություններ',
+  help: {
+    en: 'Help',
+    ru: 'Помощь',
+    am: 'Օգնություն',
   },
-  signIn: {
-    en: 'Sign in',
-    ru: 'Войти',
-    am: 'Մուտք',
+  password: {
+    en: 'Password',
+    ru: 'Пароль',
+    am: 'Գաղտնաբառ',
+  },
+  password: {
+    en: 'Password',
+    ru: 'Пароль',
+    am: 'Գաղտնաբառ',
   },
 };
 

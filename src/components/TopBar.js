@@ -79,6 +79,7 @@ export default function TopBar() {
     <Grid
       justifyContent="space-between"
       sx={{
+        zIndex: 1000,
         position: 'sticky',
         top: 0,
         bgcolor: 'rgba(255, 255, 255, 0.9)',
@@ -94,17 +95,18 @@ export default function TopBar() {
       <DrawerSideBar />
       <Grid alignItems="center" alignContent="center" item xs container justifyContent="flex-end">
         <FlagMenu />
-        <Box
-          sx={{
-            px: '3px',
-            m: '10px',
+        <Link
+          to="/basket"
+          style={{
+            paddingX: '3px',
+            margin: '10px',
             display: 'flex',
             justifyContent: 'center',
             cursor: 'pointer',
             borderRadius: '50%',
             transition: 'all 0.2s ease-out',
             '&:hover': {
-              bgcolor: '#e0e0e0',
+              backgroundColor: '#e0e0e0',
               transform: 'scale(1.02,1.02)',
             },
           }}
@@ -122,11 +124,11 @@ export default function TopBar() {
             badgeContent={context.basket}
             color="secondary"
           >
-            <Link to="/basket">
-              <BasketIcon />
-            </Link>
+            {/* <Link to="/basket"> */}
+            <BasketIcon />
+            {/* </Link> */}
           </Badge>
-        </Box>
+        </Link>
         <Link to="/preferred">
           <Box
             sx={{

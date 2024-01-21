@@ -11,7 +11,7 @@ import {
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styled from '@emotion/styled';
 import {
   AboutIcon,
@@ -37,6 +37,8 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { getText, textSideBar } from '../texts';
+import { AppContext } from './Root';
 
 const CostumeBox = styled(Box)(({ theme }) => ({
   // display: 'flex',
@@ -52,7 +54,7 @@ const CostumeBox = styled(Box)(({ theme }) => ({
   borderStyle: 'dashed',
   borderColor: '#eeeeee',
   cursor: 'pointer',
-  zIndex: 200,
+  // zIndex: 200,
 }));
 
 const socialObject = {
@@ -63,6 +65,7 @@ const socialObject = {
 };
 
 export default function SideBar(props) {
+  const context = useContext(AppContext);
   const [open, setOpen] = useState(false);
   const [openSlippers, setOpenSlippers] = useState(false);
   const [openSocial, setOpenSocial] = useState(false);
@@ -87,7 +90,7 @@ export default function SideBar(props) {
       // xs
       flexDirection="column"
       height="100vh"
-      width={sideBarSize ? '280px' : '90px'}
+      width={sideBarSize ? '280px' : '100px'}
       sx={{
         transition: 'all 0.1s ease-out',
         display: {
@@ -105,7 +108,8 @@ export default function SideBar(props) {
       <CostumeBox
         sx={{
           display: !props.hide ? 'none' : 'flex',
-          left: sideBarSize ? '267px' : '77px',
+          left: sideBarSize ? '267px' : '87px',
+          zIndex: 1200,
         }}
         onClick={() => setSideBarSize(!sideBarSize)}
       >
@@ -126,10 +130,10 @@ export default function SideBar(props) {
           textTransform: 'uppercase',
           fontWeight: 700,
           color: '#616161',
-          p: '30px 10px 10px 10px',
+          p: '30px 1px 10px 5px',
         }}
       >
-        Overview
+        {getText('overview', context.language, textSideBar)}
       </Typography>
 
       <Link
@@ -149,7 +153,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/brands')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Brands
+          {getText('brands', context.language, textSideBar)}
         </Typography>
       </Link>
 
@@ -170,7 +174,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/shops')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Shops
+          {getText('shops', context.language, textSideBar)}
         </Typography>
       </Link>
 
@@ -191,7 +195,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/sales')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Sales
+          {getText('sales', context.language, textSideBar)}
         </Typography>
       </Link>
 
@@ -214,7 +218,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/armenian')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Armenian
+          {getText('local', context.language, textSideBar)}
         </Typography>
       </Link>
 
@@ -224,10 +228,10 @@ export default function SideBar(props) {
           textTransform: 'uppercase',
           fontWeight: 700,
           color: '#616161',
-          p: '20px 0px 10px 10px',
+          p: '20px 0px 10px 5px',
         }}
       >
-        Products
+        {getText('products', context.language, textSideBar)}
       </Typography>
 
       <Box
@@ -268,7 +272,7 @@ export default function SideBar(props) {
             }
             fontSize={sideBarSize ? 15 : 9}
           >
-            Shoes
+            {getText('shoes', context.language, textSideBar)}
           </Typography>
         </Box>
         {open ? (
@@ -308,7 +312,8 @@ export default function SideBar(props) {
                   // color={getColorOfIcon('/s')}
                   fontSize={sideBarSize ? 15 : 9}
                 >
-                  {item}
+                  {/* {item} */}
+                  {getText(item, context.language, textSideBar)}
                 </Typography>
               </Link>
             );
@@ -348,7 +353,7 @@ export default function SideBar(props) {
             color={location.pathname === '/slippers' ? '#00c853' : '#616161'}
             fontSize={sideBarSize ? 15 : 9}
           >
-            Slippers
+            {getText('slippers', context.language, textSideBar)}
           </Typography>
         </Box>
         {openSlippers ? (
@@ -388,7 +393,7 @@ export default function SideBar(props) {
                   // color={getColorOfIcon('/s')}
                   fontSize={sideBarSize ? 15 : 9}
                 >
-                  {item}
+                  {getText(item, context.language, textSideBar)}
                 </Typography>
               </Link>
             );
@@ -413,7 +418,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/inserts')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Inserts
+          {getText('inserts', context.language, textSideBar)}
         </Typography>
       </Link>
 
@@ -434,7 +439,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/care')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Care Items
+          {getText('careItems', context.language, textSideBar)}
         </Typography>
       </Link>
       <Typography
@@ -443,10 +448,10 @@ export default function SideBar(props) {
           textTransform: 'uppercase',
           fontWeight: 700,
           color: '#616161',
-          p: '20px 0px 10px 10px',
+          p: '20px 0px 10px 5px',
         }}
       >
-        Details
+        {getText('details', context.language, textSideBar)}
       </Typography>
 
       <Box
@@ -482,7 +487,7 @@ export default function SideBar(props) {
             color="#616161"
             fontSize={sideBarSize ? 15 : 9}
           >
-            Social
+            {getText('social', context.language, textSideBar)}
           </Typography>
         </Box>
         {openSocial ? (
@@ -604,7 +609,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/about')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          About
+          {getText('about', context.language, textSideBar)}
         </Typography>
       </Link>
 
@@ -626,7 +631,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/contacts')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Contacts
+          {getText('contacts', context.language, textSideBar)}
         </Typography>
       </Link>
       <Link
@@ -646,7 +651,7 @@ export default function SideBar(props) {
           color={getColorOfIcon('/help')}
           fontSize={sideBarSize ? 15 : 9}
         >
-          Help
+          {getText('help', context.language, textSideBar)}
         </Typography>
       </Link>
     </Grid>
