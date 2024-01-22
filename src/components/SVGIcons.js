@@ -24,6 +24,23 @@ export function HelpIcon() {
   );
 }
 
+export function DramIcon({ color }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" viewBox="0 2 30 30">
+      <path
+        width="15"
+        height="15"
+        fill="none"
+        stroke={color}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M7 13a6 6 0 0 1 12 0v11M23 15h-8M23 19h-8"
+      ></path>
+    </svg>
+  );
+}
+
 export function SlippersIcon() {
   return (
     <svg

@@ -74,7 +74,7 @@ export default function HomePage() {
         />
       </Grid>
       <InfiniteCarousel />
-      <Typography pt={150}></Typography>
+      <Typography mt={150}> Abraham </Typography>
     </Grid>
   );
 }

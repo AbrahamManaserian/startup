@@ -9,6 +9,7 @@ import { useContext, useState } from 'react';
 import { barText, getText } from '../texts';
 import { getAuth, signOut } from 'firebase/auth';
 import DrawerSideBar from './DrawerSideBar';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 
 export function UserMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -145,7 +146,7 @@ export default function TopBar() {
               },
             }}
           >
-            <FavoriteTwoToneIcon color="error" sx={{ fontSize: '28px' }} />
+            <FavoriteOutlinedIcon color="error" sx={{ fontSize: '28px' }} />
           </Box>
         </Link>
         {context.user ? (
