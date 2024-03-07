@@ -35,14 +35,14 @@ const images = [
   'https://4feetshoes.com/cdn/shop/products/Navy035480-01.jpg?v=1631908688',
 ];
 
-function SampleNextArrow(props) {
+export function SampleNextArrow(props) {
   const { className, style, onClick, showArrow } = props;
   return (
     <div
       style={{
         position: 'absolute',
         right: showArrow ? '21px' : '16px',
-        bottom: '50%',
+        bottom: 'calc(50% - 14px)',
         zIndex: 1,
         transition: 'all 0.3s ',
 
@@ -58,7 +58,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+export function SamplePrevArrow(props) {
   const { className, style, onClick, showArrow } = props;
   return (
     <div
@@ -66,7 +66,7 @@ function SamplePrevArrow(props) {
         transition: 'all 0.3s ',
         position: 'absolute',
         left: showArrow ? '5px' : '0',
-        bottom: '45%',
+        bottom: 'calc(50% - 16px)',
         zIndex: 1,
         visibility: showArrow ? 'visible' : 'hidden',
         opacity: showArrow ? 1 : 0,
@@ -92,6 +92,7 @@ function Card1({ image, index }) {
         borderRadius: '5px',
         p: '15px',
         overflow: 'hidden',
+        bgcolor: 'white',
       }}
     >
       <Box
@@ -214,7 +215,7 @@ function Card1({ image, index }) {
   );
 }
 
-export default function InfiniteCarousel() {
+export default function InfiniteCarousel({ color }) {
   const [showArrows, setShowArrows] = useState(false);
   // console.log(showArrows);
   const settings = {
@@ -238,7 +239,7 @@ export default function InfiniteCarousel() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -258,36 +259,22 @@ export default function InfiniteCarousel() {
     <Grid
       onMouseEnter={() => setShowArrows(true)}
       onMouseLeave={() => setShowArrows(false)}
-      // p="0 5px 0 15px"
       item
       xs={12}
       sx={{
         p: {
-          xs: '0 0 0 15px',
-          sm: '0 8px 0 20px',
+          xs: '0 0 35px 15px',
+          sm: '0 8px 35px 20px',
         },
       }}
-      // height="300px"
-      // sx={{ height: '300px' }}
-      // alignItems="stretch"
     >
-      {/* <h2>Flash Deals</h2> */}
       <Grid container my="20px" alignItems="center" item xs={12}>
         <BoltIcon color="error" />
         <Typography sx={{ fontSize: '24px', fontWeight: 700, color: '#37474f' }}>Flash Deals</Typography>
       </Grid>
       <Slider {...settings}>
-        {/* <div>
-          <h3>1</h3>
-          <Card1 />
-        </div> */}
         {images.map((item, index) => {
-          return (
-            // <div key={index}>
-            <Card1 key={index} index={index} image={item} />
-            // {index}
-            // </div>
-          );
+          return <Card1 key={index} index={index} image={item} />;
         })}
       </Slider>
     </Grid>

@@ -1,5 +1,6 @@
 import { Button, Grid, Typography } from '@mui/material';
 import InfiniteCarousel from '../components/SlideCarousel';
+import SlideCarousel3Items from '../components/SlideCarousel3Items';
 // import SlideCarousel from '../components/SlideCarousel';
 
 export default function HomePage() {
@@ -26,7 +27,7 @@ export default function HomePage() {
     'https://4feetshoes.com/cdn/shop/products/Navy035480-01.jpg?v=1631908688',
   ];
   return (
-    <Grid item xs={12} container>
+    <Grid item xs={12} container sx={{ bgcolor: '#f4f8fb' }}>
       <Grid
         sx={{
           bgcolor: 'white',
@@ -67,13 +68,17 @@ export default function HomePage() {
         alignContent="center"
         xs={12}
         sm={6}
+        sx={{ bgcolor: 'white' }}
       >
         <img
           style={{ width: '70%' }}
           src="https://www.mensjournal.com/.image/t_share/MTk2MTM1OTAxMjIyNjc1NjAx/apl-running-main.jpg"
         />
       </Grid>
-      <InfiniteCarousel />
+      <InfiniteCarousel color="#f0f6fb" />
+      <SlideCarousel3Items />
+      <InfiniteCarousel color="#f0f6fb" />
+
       <Typography mt={150}> Abraham </Typography>
     </Grid>
   );

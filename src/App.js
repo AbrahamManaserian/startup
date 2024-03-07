@@ -3,7 +3,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Link, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ErrorPage from './pages/ErrorPage';
@@ -17,6 +17,13 @@ import BrandsPage from './pages/BrandsPage';
 import ShopsPage from './pages/ShopsPage';
 import ArmenianShoesPage from './pages/ArmenianShoesPage';
 import SalesPage from './pages/SalesPage';
+import NewHomePage from './components/paulTest/pages/NewHomePage';
+import BarMenu from './components/paulTest/components/BarMenu';
+import AboutUsPage from './components/paulTest/pages/AboutUsPage';
+import ContactPage from './components/paulTest/pages/ContactPage';
+import Footer from './components/paulTest/components/Footer';
+import ServicesPage from './components/paulTest/pages/ServicesPage';
+import BlogPage from './components/paulTest/pages/BlogPage';
 
 const router = createBrowserRouter([
   {
@@ -102,6 +109,39 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/test',
+    element: (
+      <div style={{ minHeight: '100vh' }}>
+        <BarMenu />
+        <Outlet />
+        {/* <Footer /> */}
+      </div>
+    ),
+    children: [
+      {
+        path: '/test',
+        element: <NewHomePage />,
+      },
+      {
+        path: 'about',
+        element: <AboutUsPage />,
+      },
+      {
+        path: 'blog',
+        element: <BlogPage />,
+      },
+      {
+        path: 'contact',
+        element: <ContactPage />,
+      },
+      {
+        path: 'services',
+        element: <ServicesPage />,
+      },
+    ],
+  },
+
   // {
   //   path: '/about',
   //   element: <AboutPage />,
