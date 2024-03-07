@@ -37,28 +37,40 @@ export default function BarMenu() {
       >
         {/* <Box sx={{ display: 'flex', height: '100%', alignItems: 'center' }}> */}
         <Link
-          style={{ color: location.pathname.includes('about') ? 'red' : '' }}
+          style={{
+            backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+            color: location.pathname.includes('services') ? 'black' : '',
+          }}
           className="link-rout"
           to="/test/about"
         >
           About Us
         </Link>
         <Link
-          style={{ color: location.pathname.includes('services') ? 'red' : '' }}
+          style={{
+            backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+            color: location.pathname.includes('services') ? 'black' : '',
+          }}
           className="link-rout"
           to="/test/services"
         >
           Services
         </Link>
         <Link
-          style={{ color: location.pathname.includes('blog') ? 'red' : '' }}
+          style={{
+            backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+            color: location.pathname.includes('services') ? 'black' : '',
+          }}
           className="link-rout"
           to="/test/blog"
         >
           Blog
         </Link>
         <Link
-          style={{ color: location.pathname.includes('contact') ? 'red' : '' }}
+          style={{
+            backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+            color: location.pathname.includes('services') ? 'black' : '',
+          }}
           className="link-rout"
           to="/test/contact"
         >
@@ -86,28 +98,40 @@ export default function BarMenu() {
       >
         <Box onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
           <Link
-            style={{ color: location.pathname.includes('about') ? 'red' : '' }}
+            style={{
+              backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+              color: location.pathname.includes('services') ? 'black' : '',
+            }}
             className="link-rout"
             to="/test/about"
           >
             About Us
           </Link>
           <Link
-            style={{ color: location.pathname.includes('services') ? 'red' : '' }}
+            style={{
+              backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+              color: location.pathname.includes('services') ? 'black' : '',
+            }}
             className="link-rout"
             to="/test/services"
           >
             Services
           </Link>
           <Link
-            style={{ color: location.pathname.includes('blog') ? 'red' : '' }}
+            style={{
+              backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+              color: location.pathname.includes('services') ? 'black' : '',
+            }}
             className="link-rout"
             to="/test/blog"
           >
             Blog
           </Link>
           <Link
-            style={{ color: location.pathname.includes('contact') ? 'red' : '' }}
+            style={{
+              backgroundColor: location.pathname.includes('services') ? 'rgb(255, 215, 0)' : '',
+              color: location.pathname.includes('services') ? 'black' : '',
+            }}
             className="link-rout"
             to="/test/contact"
           >
